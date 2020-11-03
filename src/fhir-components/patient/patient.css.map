@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AIsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE",
+    "sources": [
+        "patient.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss"
+    ],
+    "names": [],
+    "file": "patient.css"
+}

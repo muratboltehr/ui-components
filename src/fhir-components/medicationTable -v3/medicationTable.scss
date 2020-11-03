@@ -1,0 +1,382 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$table-bg-color: white;
+$table-text-color:#212529;
+$action-btn-bg-color: black;
+$efficacy-icon-width: 24px;
+$efficacy-icon-height: 24px;
+$column-head-font-size: 0.75rem;
+$table-font-size: 0.75rem;
+$table-header-font-size: 0.875rem;
+@mixin efficacy-icon-styles {
+  .efficacy-container {
+    text-align: center;
+    color: black;
+    margin: 2px auto;
+    padding: 1px 5px;
+    font-size: 0.75rem;
+    .t2dm-efficacy-icon {
+      width: $efficacy-icon-width;
+      height: $efficacy-icon-height;
+      margin: 0 auto;
+    }
+  }
+}
+
+@mixin benefit-icon-styles {
+  .t2dm-benefit-icon {
+    width: $efficacy-icon-width + 4px;
+    height: $efficacy-icon-height +4px;
+    margin: 0.2rem 0.15rem;
+  }
+}
+
+@mixin risk-icon-styles {
+  .t2dm-risk-icon {
+    width: $efficacy-icon-width+4px;
+    height: $efficacy-icon-height+4px;
+  }
+  #heart-icon-target{
+    width: $efficacy-icon-width;
+    height: $efficacy-icon-height;
+
+  }
+}
+/* common css start */
+.mt-1,
+.my-1 {
+  margin-top: 0.25rem !important;
+}
+.pl-8 {
+  padding-left: 8px !important;
+}
+.pr-8 {
+  padding-right: 8px !important;
+}
+.pb-1,
+.py-1 {
+  padding-bottom: 0.25rem !important;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.left {
+  float: left !important;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+/* common css end */
+
+.tooltip-container {
+  @include efficacy-icon-styles;
+  @include benefit-icon-styles;
+  @include risk-icon-styles;
+  background-color: #ffffff;
+  color:black;
+  padding: 8px 5px;
+  border: 0.5px solid rgb(15, 15, 15);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: left;
+  z-index: 987654321;
+  max-width: 650px;
+  .header {
+    border-bottom: 1px solid #c0c0c0;
+    font-weight: bold;
+    margin-bottom: 8px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
+
+.medication-table {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: $table-text-color ;
+  td:nth-of-type(odd),
+  th:nth-of-type(odd) {
+    background-color: #f7f7f7;
+  }
+  td:nth-of-type(even),
+  th:nth-of-type(even) {
+    background-color: #ffffff;
+  }
+  .table-row {
+    @include efficacy-icon-styles;
+    @include benefit-icon-styles;
+    @include risk-icon-styles;
+    td {
+      padding: 0.3rem;
+      font-size: $table-font-size;
+    }
+
+    .action-column {
+      .action-button {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 5px 15px 5px 30px;
+        line-height: 17px;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+        word-wrap: none;
+        outline: none;
+        font-weight: bold;
+        transition: all 0.3s ease-in;
+    
+        .in-line-icon {
+          position: absolute;
+          top: 50%;
+          left: 13px;
+          width: 13px;
+          height: 11px;
+          margin: -5px 0 0 0;
+          padding: 0;
+          overflow: hidden;
+          background: url(../../../public/icons/optum_line.png) no-repeat;
+          border: none;
+          &.selected{
+            background-position: -15px 0;
+          }
+        }
+
+        &.unavailable{
+          padding: 5px 0;
+          color:$table-text-color;
+          font-weight: none;
+          text-transform: none;
+          background-color: #f2cecf;
+          border: none;
+          border-radius: 0.5rem;
+          text-align: center;
+          width: 100px;
+
+        }
+        &.selected {
+          background: #381ba7;
+          color: white;
+        }
+        
+      }
+    }
+
+    &.selected {
+      border-left: .7rem solid #2f1986;
+      td {
+        background-color: #e1dcee;
+      }
+    }
+    &:not([class ~="selected"]):not(:last-child) {
+      border-bottom: 2px solid #e4e4e4 !important;
+    }
+  }
+
+  .table-head-row {
+    font-size: $column-head-font-size;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 2px solid #dee2e6;
+    th {
+      padding: 0.2rem;
+      text-align: left;
+      word-break: keep-all;
+    }
+    .t2dm-efficacy-column {
+      @include efficacy-icon-styles;
+    }
+    .t2dm-benefit-column {
+      @include benefit-icon-styles;
+    }
+    .t2dm-risk-column {
+      @include risk-icon-styles;
+    }
+  }
+}
+
+.active-medications {
+  background-color: $table-bg-color;
+  color: $table-text-color;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  .action-column {
+    .action-button {
+      &.available{
+        background: #381ba7;
+        border: 1px solid;
+      border-radius: 1.5rem;
+      }
+      &.available:not([class*="selected"]):hover {
+        background: #e6e6ed;
+        color: #381ba7;
+      }
+    }
+
+  }
+}
+
+.onGuideline-group {
+  .onGuideline-suggestion{
+    font-size: $table-header-font-size;
+    color: $table-text-color;
+  }
+  height: auto;
+  transition: height 1s;
+  .onGuideline-suggestion {
+    background-color: #92d2bb;
+    color: #000000;
+    border: 1px solid #013924;
+  }
+  .medication-table{
+    border: 1px solid #2f1986;
+    border-radius: 0;
+    .action-column {
+      .action-button {
+        &.available{
+          background: #381ba7;
+          border: 1px solid;
+        border-radius: 1.5rem;
+        }
+        &.available:not([class*="selected"]):hover {
+          background: #e6e6ed;
+          color: #381ba7;
+        }
+        &.selected {
+          background: #381ba7;
+          color: white;
+        }
+      }
+    }
+  }
+}
+.offGuideline-group{
+  background-color: fefbf3;
+  .offGuideline-suggestion{
+    font-size: $table-header-font-size;
+    color: $table-text-color;
+    background-color: inherit;
+  }
+  .medication-table{
+    .action-column {
+      .action-button {
+        &.available{
+          color: $table-text-color;
+          background-color: #D0D0CE;
+          border: none;
+          border-radius: 1rem;
+        }
+        &.available:not([class*="selected"]):hover {
+          background: #e6e6ed;
+          color: #381ba7;
+        }
+        &.selected {
+          background: #381ba7;
+          color: white;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+.collapse-container {
+  .collapse-indicator{
+  margin-right: 5px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid black;
+  transition: all 0.5s;
+  &.active {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }}
+  .collapse-body {
+    max-height: 0;
+    transition: all 0.5s;
+    overflow: hidden;
+    &.active {
+      max-height: 200vh;
+  }
+}
+}
+
+.medication-group-table{
+  .combined-medication{
+    font-size: $table-header-font-size;
+  }
+  .sub-table-container {
+    color: #282A2E;
+    background-color: #EFEFEE;
+    padding-top: .2rem;
+    .offGuideline-group{
+      color: #282A2E;
+      margin: .5rem 0  ;
+    }
+   } 
+}
+
+.drug-discontinue-warning{
+  background-color: #E1DCEE;
+  font-size: 0.75rem;
+  .warning-msg{
+    background-color: #FFF7CD;
+    border-left: .5rem solid #FFCD4F;
+    color: #000000;
+    border-radius: 0;
+    padding: .25rem .5rem;
+  }
+}
+
+
+.bs-popover-top .arrow::after,
+.bs-popover-auto[x-placement^="top"] .arrow::after {
+  border-top-color: rgb(14, 13, 13);
+}
+
+.bs-popover-bottom .arrow,
+.bs-popover-auto[x-placement^="bottom"] .arrow {
+  &::after{
+  border-bottom-color: rgb(14, 13, 13);
+}
+}
+
+.bs-popover-right .arrow,
+.bs-popover-auto[x-placement^="right"] .arrow {
+ &::after{ 
+  border-right-color: rgb(14, 13, 13);
+ }
+}
+
+.bs-popover-left .arrow,
+.bs-popover-auto[x-placement^="left"] .arrow {
+  &::after{
+  border-left-color: rgb(14, 13, 13); 
+  }
+  &::before{
+    border-left-color: rgb(14, 13, 13)
+    }
+}
+
+.popover {
+  .arrow{
+    background: transparent;
+  }
+}

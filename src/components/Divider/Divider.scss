@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+@import "../../common.scss";
+
+$divider-margin: $pt-grid-size / 2 !default;
+.#{$ns}-vertical {
+  display: inline;
+  // width: 2px;
+  // border-bottom: 1px solid $pt-divider-black;
+  // background-color: grey;
+  border-right: 1px solid $pt-divider-black;
+  margin: $divider-margin + 5px;
+  // margin: 0 10px;
+  // height: 2em;
+}
+
+.#{$ns}-horizontal {
+  display: block;
+  border-right: 1px solid $pt-divider-black;
+  margin: $divider-margin + 3px;
+  border-bottom: 1px solid $pt-divider-black;
+  // margin: 0 10px;
+  // height: 2px;
+}

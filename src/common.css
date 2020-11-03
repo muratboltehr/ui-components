@@ -1,0 +1,34 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+CSS `border` property issues:
+- An element can only have one border.
+- Borders can't stack with shadows.
+- Borders modify the size of the element they're applied to.
+- Border positioning requires the extra `box-sizing` property.
+
+`box-shadow` doesn't have these issues, we're using it instead of `border`.
+*/
+/*
+Overlay shadows are used for default buttons
+floating on top of other elements. This way, the
+shadows blend with the colors beneath it.
+Switches and slider handles both use these variables.
+*/
+/*# sourceMappingURL=common.css.map */

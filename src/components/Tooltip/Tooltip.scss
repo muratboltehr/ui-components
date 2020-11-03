@@ -1,0 +1,42 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+@import "../Popover/common.scss";
+@import "./Common.scss";
+
+.tooltip-container {
+  background-color: #ffffff;
+  color:black;
+  padding: 8px 5px;
+  border: 0.5px solid rgb(15, 15, 15);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: left;
+  z-index: 987654321;
+  max-width: 650px;
+  .header {
+    border-bottom: 1px solid #c0c0c0;
+    font-weight: bold;
+    margin-bottom: 8px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
+
+.popover {
+  .arrow{
+    width: 12px;
+    height: 8px;
+  }
+
+}
+
+.tooltip-target{
+  display: inline-block;
+}

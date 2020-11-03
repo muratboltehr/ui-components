@@ -1,0 +1,40 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+@import "./CalloutCommon";
+
+.#{$ns}-callout {
+  background-color: rgba($gray2,0.15);
+  border-radius: $pt-border-radius;
+  padding: $pt-grid-size ($pt-grid-size * 1.2) ($pt-grid-size * 0.9);
+  position: relative;
+  display: inline-block;
+  background-color: #FFF7CD;
+  border-left: 0.5rem solid #FFCD4F;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  .#{$ns}-heading{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
+
+  &::before {
+    // @include pt-icon($pt-icon-size-large);
+    color: $pt-icon-color;
+    left: $pt-grid-size;
+    position: absolute;
+    top: $pt-grid-size;
+  }
+
+  // intents
+  @each $intent, $colors in $callout-intents {
+    &.#{$ns}-intent-#{$intent} {
+      @include pt-callout-intent($colors);
+      border-left: 7px solid $colors;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+

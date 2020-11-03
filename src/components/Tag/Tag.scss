@@ -1,0 +1,62 @@
+@import "../../variables.scss";
+@import "../../common.scss";
+
+.#{$ns}-tag-intent-primary {
+  background-color: $blue2;
+
+  // -webkit-transition: color 0.2s;
+}
+
+.#{$ns}-tag-intent-danger {
+  stroke: $red2;
+  background-color: $red2;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: stroke-dashoffset;
+}
+
+.#{$ns}-tag-intent-warning {
+  stroke: $orange2;
+  background-color: $orange2;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: stroke-dashoffset;
+}
+
+.#{$ns}-tag-intent-success {
+  stroke: $green2;
+  background-color: $green2;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: stroke-dashoffset;
+}
+
+.#{$ns}-active {
+  opacity: 0.7;
+  border-radius: 3px 0 0 3px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  color: black;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.#{$ns}-minimal {
+  background-color: lightgray;
+}
+
+
+
+.#{$ns}-isRound {
+  border-radius: 26px;
+}
+
+.#{$ns}-interactive:hover {
+  background-color: lightgray;
+}

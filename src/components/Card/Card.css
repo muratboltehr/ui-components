@@ -1,0 +1,71 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+.optum-card {
+  background-color: #ffffff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
+  padding: 10px;
+}
+
+/**
+ * When a cursor is hovered over the car the shadow elevation is changed to 
+ * level 3
+ * When card is clicked on, the elevation shadow level goes to 1. 
+ */
+.optum-card.optum-interactive:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+}
+
+.optum-card.optum-interactive:active {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 1px 1px rgba(16, 22, 26, 0.2);
+}
+
+/**
+ * This for loop is being used to access the list of avalable elevation shadows
+ * and sets the box-shadow based on the user's selection 
+ */
+.optum-elevation-0 {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.15), 0 0 0 rgba(16, 22, 26, 0), 0 0 0 rgba(16, 22, 26, 0);
+}
+
+.optum-elevation-1 {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 1px 1px rgba(16, 22, 26, 0.2);
+}
+
+.optum-elevation-2 {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 1px 1px rgba(16, 22, 26, 0.2), 0 2px 6px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 1px 1px rgba(16, 22, 26, 0.2), 0 2px 6px rgba(16, 22, 26, 0.2);
+}
+
+.optum-elevation-3 {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
+}
+
+.optum-elevation-4 {
+  -webkit-box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.2);
+}
+/*# sourceMappingURL=Card.css.map */

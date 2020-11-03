@@ -1,0 +1,160 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$control-indicator-size: $pt-icon-size-standard !default;
+.#{$ns}-form-group {
+  margin: ($pt-grid-size * 1.5);
+  position: relative;
+  font-size:16px;
+  .form-input{
+    padding: .8em;
+    transition: border-color .25s ease-in-out;
+    color: rgba(255, 255, 255, .75);
+    color:#000000;
+    opacity: 87.0%;
+    border: 2px solid rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    background-color: transparent;
+    position :relative;    
+    &::placeholder{
+      color:transparent;
+    }
+    &:hover{
+      border-color: rgba(0, 0, 0, 0.87);
+    }
+    &:focus{
+        outline:none;
+        border-color: #1976d2;;
+
+      &::placeholder{
+      color:inherit;
+    }
+    
+    + .form-input-label{
+    z-index: 2500;
+    padding: .5em;
+    transform: translate(0, -1.6em) scale(.9);
+    background-color: white;
+    color: #1976d2;
+    opacity: 1;
+    }
+    }
+    &:not(:placeholder-shown){
+     + .form-input-label{ 
+      color: #1976d2;
+
+      z-index: 2500;
+      padding: .5em;
+      transform: translate(0, -1.6em) scale(.9);
+     
+    }
+    }
+    &.input-invalid{
+      border-color: #f44336;
+      &:focus{
+        border-color: #f73325;
+
+      }
+      &:hover{
+        border-color: #f73325;
+      }
+      + .form-input-label{
+        color: #f44336;
+        background-color: white;
+      }
+    }
+    &.#{$ns}-disabled{
+      color: rgba(0, 0, 0, 0.38);
+      background-color:  rgba(0, 0, 0, 0.18) ;
+      z-index: 3000;
+      cursor: default;
+    }
+  }
+  .form-input-label{
+    position:absolute;
+    color:#000000;
+    background-color: white;
+    display:block;
+     top: .75em;
+     left: .5em;
+     display: inline-block;
+     width: auto;
+     margin: 0;
+     padding: .5em 0.5em;
+     line-height:1;
+     transition: transform .25s, opacity .25s, padding .25s ease-in-out;
+     transform-origin: 0 0;   
+     &.label-required{
+       &::after{
+         content: '*';
+         padding-left: .25em;
+       }
+     }
+ }
+
+
+
+  .#{$ns}-form-helper-text {
+    color: $pt-text-color-muted;
+    font-size: $pt-font-size-small;
+    margin-top: $pt-grid-size / 2;
+  }
+
+  // stylelint-disable-next-line order/declaration-block-order
+  @each $intent, $color in $pt-intent-text-colors {
+    &.#{$ns}-intent-#{$intent} {
+      .#{$ns}-form-helper-text {
+        color: $color;
+      }
+    }
+  }
+
+  &.#{$ns}-inline {
+    display: inline-block;
+
+    &.#{$ns}-large label.#{$ns}-label {
+      line-height: $pt-input-height-large;
+      margin: 0 $pt-grid-size 0 0;
+    }
+
+    label.#{$ns}-label {
+      line-height: $pt-input-height;
+      margin: 0 $pt-grid-size 0 0;
+    }
+  }
+
+  &.#{$ns}-disabled {
+    .#{$ns}-label,
+    .#{$ns}-text-muted,
+    .#{$ns}-form-helper-text {
+      // disabled state always overrides over styles
+      // stylelint-disable-next-line declaration-no-important
+      color: $pt-text-color-disabled !important;
+    }
+  }
+
+  .#{$ns}-dark & {
+    @each $intent, $color in $pt-dark-intent-text-colors {
+      &.#{$ns}-intent-#{$intent} {
+        .#{$ns}-form-helper-text {
+          color: $color;
+        }
+      }
+    }
+
+    .#{$ns}-form-helper-text {
+      color: $pt-dark-text-color-muted;
+    }
+
+    &.#{$ns}-disabled {
+      .#{$ns}-label,
+      .#{$ns}-text-muted,
+      .#{$ns}-form-helper-text {
+        // disabled state always overrides over styles
+        // stylelint-disable-next-line declaration-no-important
+        color: $pt-dark-text-color-disabled !important;
+      }
+    }
+  }
+}

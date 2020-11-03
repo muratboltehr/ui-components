@@ -1,0 +1,17 @@
+{
+    "version": 3,
+    "mappings": "AIsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE;AJ1LF,AAAA,6BAA6B,CAAC;EAE5B,QAAQ,EAAE,MAAM;EAChB,WAAW,EAAC,MAAM;EAClB,aAAa,EAAE,QAAQ;CAExB",
+    "sources": [
+        "Text.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss",
+        "../../typography.scss"
+    ],
+    "names": [],
+    "file": "Text.css"
+}

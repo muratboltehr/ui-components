@@ -1,0 +1,126 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+body.optum-overlay-open {
+  overflow: hidden;
+}
+
+.optum-overlay {
+  bottom: 0;
+  left: 0;
+  position: static;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.optum-overlay:not(.optum-overlay-open) {
+  pointer-events: none;
+}
+
+.optum-overlay.optum-overlay-container {
+  overflow: hidden;
+  position: fixed;
+}
+
+.optum-overlay.optum-overlay-container.optum-overlay-inline {
+  position: absolute;
+}
+
+.optum-overlay.optum-overlay-scroll-container {
+  overflow: auto;
+  position: fixed;
+}
+
+.optum-overlay.optum-overlay-scroll-container.optum-overlay-inline {
+  position: absolute;
+}
+
+.optum-overlay.optum-overlay-inline {
+  display: inline;
+  overflow: visible;
+}
+
+.optum-overlay-content {
+  position: fixed;
+  z-index: 20;
+}
+
+.optum-overlay-inline .optum-overlay-content,
+.optum-overlay-scroll-container .optum-overlay-content {
+  position: absolute;
+}
+
+.optum-overlay-backdrop {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  background-color: rgba(16, 22, 26, 0.7);
+  overflow: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 20;
+}
+
+.optum-overlay-backdrop.optum-overlay-enter, .optum-overlay-backdrop.optum-overlay-appear {
+  opacity: 0;
+}
+
+.optum-overlay-backdrop.optum-overlay-enter-active, .optum-overlay-backdrop.optum-overlay-appear-active {
+  opacity: 1;
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 1, 0.75, 0.9);
+          transition-timing-function: cubic-bezier(0.4, 1, 0.75, 0.9);
+}
+
+.optum-overlay-backdrop.optum-overlay-exit {
+  opacity: 1;
+}
+
+.optum-overlay-backdrop.optum-overlay-exit-active {
+  opacity: 0;
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 1, 0.75, 0.9);
+          transition-timing-function: cubic-bezier(0.4, 1, 0.75, 0.9);
+}
+
+.optum-overlay-backdrop:focus {
+  outline: none;
+}
+
+.optum-overlay-inline .optum-overlay-backdrop {
+  position: absolute;
+}
+
+/*# sourceMappingURL=Overlay.css.map */
+

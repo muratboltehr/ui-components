@@ -1,0 +1,131 @@
+// Generated with util/create-component.js
+// @import "../../variables.scss";
+// @import "../../typography.scss";
+// @import "../../styles/index.scss";
+
+.question-container {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.9375rem;
+  box-sizing: border-box;
+  .text-right{
+    text-align: right;
+  }
+  .definition {
+    margin-top: .5rem;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+}
+  .question {
+    padding: 0;
+    margin: 0 1em 0.5em 0;
+    font-size: 0.9375rem;
+    width: 400px;
+  }
+  .selectable {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 6px 8px;
+    margin-top: 2px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold;
+    &:active{
+      transform: scale(.995);
+    }
+    transition: background-color .1s ease-in;
+    &.active {
+      background-color: #e6e6ed !important;
+      border: 1px solid #2f1986;
+      border-radius: 4px;
+      color: #000000;
+    }
+    .inferred {
+      color: #333333;
+      font-weight: normal;
+      font-style: italic;
+    }
+    .value{
+      display: inline-block;
+    }
+    &:hover:not([class~="active"]) {
+      background-color: #2f1986;
+      color: #ffffff;
+      border: 1px solid #2f1986;
+      border-radius: 4px;
+
+      .inferred {
+        background-color: #2f1986;
+        color: #ffffff;
+      }
+    }
+
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+  }
+  .full-definition {
+    border-top: 1px solid #d0d0ce;
+    margin-top: .5rem;
+    padding-top: .5rem;
+}
+}
+
+
+.text-question-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  &::after{
+    display: none;
+  }
+  .invalid-feedback{
+    display: block;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.clr-input {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  margin-right:4px ;
+  color: #534e4e;
+  &.invalid{
+    border:2px solid #c25608;
+  }
+}
+.save-btn{
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #2F1986;
+    border: 1px solid #2F1986;
+    border-radius: 1rem;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    &:hover{
+      background-color: white;
+    border: 1px solid #2F1986;
+    color: #2F1986;
+    }
+    &:focus{
+      background-color: #2F1986;
+    color: white;
+
+    }
+}
+}
+
+.question-example{
+  padding: 8px;
+
+  border: 1px solid rgb(20, 20, 20);
+  border-radius: 4px;
+}

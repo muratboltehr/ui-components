@@ -1,0 +1,24 @@
+{
+    "version": 3,
+    "mappings": "AIsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE;AAxDF;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE;AInLF;;;;;;;;EAQE;AAWF;;;;;EAKE;ARhCF,AAAA,yBAAyB,CAAE;EACzB,gBAAgB,EEuBV,OAAO;CFpBd;;AAED,AAAA,wBAAwB,CAAE;EACxB,MAAM,EEmCD,OAAO;EFlCZ,gBAAgB,EEkCX,OAAO;EFjCZ,cAAc,EAAE,KAAK;EACrB,gBAAgB,EAAE,MAAM;EACxB,UAAU,EAAE,iBAAiB;CAC9B;;AAED,AAAA,yBAAyB,CAAE;EACzB,MAAM,EEqBE,OAAO;EFpBf,gBAAgB,EEoBR,OAAO;EFnBf,cAAc,EAAE,KAAK;EACrB,gBAAgB,EAAE,MAAM;EACxB,UAAU,EAAE,iBAAiB;CAC9B;;AAED,AAAA,yBAAyB,CAAE;EACzB,MAAM,EEOC,OAAO;EFNd,gBAAgB,EEMT,OAAO;EFLd,cAAc,EAAE,KAAK;EACrB,gBAAgB,EAAE,MAAM;EACxB,UAAU,EAAE,iBAAiB;CAC9B;;AAED,AAAA,aAAa,CAAE;EACb,OAAO,EAAE,GAAG;EACZ,aAAa,EAAE,WAAW;EAC1B,OAAO,EAAE,YAAY;EACrB,MAAM,EAAE,IAAI;EACZ,WAAW,EAAE,IAAI;EACjB,OAAO,EAAE,aAAa;EACtB,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,aAAa;EACrB,eAAe,EAAE,IAAI;EACrB,WAAW,EAAE,IAAI;EACjB,UAAU,EAAE,MAAM;EAClB,cAAc,EAAE,MAAM;CACvB;;AAED,AAAA,cAAc,CAAE;EACd,gBAAgB,EAAE,SAAS;CAC5B;;AAED,AAAA,YAAY,CAAE;EACZ,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,MAAM;EAClB,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,IAAI;CAClB;;AAED,AAAA,cAAc,CAAE;EACd,aAAa,EAAE,IAAI;CACpB;;AAED,AAAA,kBAAkB,AAAA,MAAM,CAAE;EACxB,gBAAgB,EAAE,SAAS;CAC5B",
+    "sources": [
+        "Tag.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss",
+        "../../common.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss"
+    ],
+    "names": [],
+    "file": "Tag.css"
+}

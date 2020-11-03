@@ -1,0 +1,13 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+
+
+label.#{$ns}-label {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+*, :after, :before {
+  /* -webkit-box-sizing: inherit; */
+  box-sizing: inherit;
+}

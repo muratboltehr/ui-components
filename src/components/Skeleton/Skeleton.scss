@@ -1,0 +1,39 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$sk-animation:($pt-transition-duration * 10) linear infinite alternate skeleton-animation !default;
+$sk-color-s: rgba($light-gray1, 0.2) !default;
+$sk-color-e: rgba($gray1, 0.2) !default;
+
+@keyframes skeleton-animation{
+  from{
+    background: $sk-color-s;
+    border-color: $sk-color-s;
+  }
+
+  to{
+    background: $sk-color-e;
+    border-color: $sk-color-e;
+  }
+}
+
+.#{$ns}-skeleton{
+  background-color: red;
+  background: $sk-color-s;
+  background-clip: padding-box;
+  border-color: $sk-color-s ;
+  border-radius: 2px;
+  box-shadow: none;
+  color: transparent;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+  &::before,
+  &::after,
+  * {
+    visibility: hidden !important;
+  }
+
+  
+}

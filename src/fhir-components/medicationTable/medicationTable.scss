@@ -1,0 +1,481 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.t2dm-active-medications {
+  border: 1px solid #a1bce1;
+  background-color: #dae4f3;
+  color: #000000;
+  border-radius: 3px;
+  padding: 0 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.t2dm-costs-column {
+  white-space: nowrap !important;
+}
+.mt-1, .my-1 {
+  margin-top: .25rem!important;
+}
+.pl-8 {
+  padding-left: 8px !important;
+}
+.pr-8 {
+  padding-right: 8px !important;
+}
+.pb-1,
+.py-1 {
+  padding-bottom: 0.25rem !important;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.left {
+  float: left !important;
+}
+.mb-1{
+  margin-bottom: .25rem;
+}
+.mt-16 {
+  margin-top: 16px !important;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f8f8;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #f0f0f0;
+}
+.medic-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  text-align: left;
+}
+
+.medic-table td
+{
+  padding: 0.3rem;
+  vertical-align: middle;
+}
+.medic-table th {
+  padding: 0.75rem;
+  vertical-align: bottom;
+  border-top: 1px solid #dee2e6;
+}
+
+.medic-table {
+  border-collapse: collapse;
+  float: left;
+  font-size: 0.875rem;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+
+  tr{
+  transition: all 0.4s linear;
+
+  }
+}
+.medic-table .row {
+  padding: 16px;
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #d0d0ce;
+}
+
+.medic-table thead th {
+  font-weight: bold;
+}
+
+.medic-table .row:not(.head) {
+  border-left: 4px solid #d0d0ce;
+}
+
+.medic-table .row.new {
+  border-left: 4px solid #627d32;
+}
+
+.medic-table .row .item {
+  display: inline-block;
+  float: left;
+}
+
+/* .steps .table .row:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+} */
+
+.medic-table .row.selected .item.radio {
+  color: #316bbe;
+}
+
+.medic-table .row.selected {
+  background-color: rgba(49, 107, 190, 0.1);
+}
+
+.medic-table tr:first-child th {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.medic-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+tr.selected{
+    border-left: 3px solid #005E9D !important;
+    background-color: #DAE4F3 !important;
+}
+.table-sm td,
+.table-sm th {
+  padding: 0.75rem 0.3rem 0.3rem 0.3rem;
+}
+td.t2dm-considerations-benefits {
+  border-right: 1px solid #D0D0CE;
+}
+
+/* Efficacy */
+
+
+.efficacy,
+.recommended,
+.risk {
+  border-radius: 4px;
+  padding: 4px 6px;
+  width: 75px;
+  display: inline-block;
+}
+.efficacy {
+  text-align: center;
+  width: 115px;
+  color: black;
+}
+
+.low-efficacy,
+.high-risk {
+  background-color: #c25608 !important;
+  border-radius: 3px;
+  color: white !important;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
+.low-efficacy {
+  background-color: #f2cecf !important;
+  border: 1px solid #a32a2e !important;
+  color: black !important;
+}
+
+.intermediate-efficacy,
+.medium-risk {
+  background-color: #f2b411 !important;
+  border-radius: 3px;
+  color: black !important;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 4px;   
+}
+
+.intermediate-efficacy {
+  background-color: #fcf0cf !important;
+  border: 1px solid #f2b411 !important;
+  color: black !important;
+}
+
+.high-efficacy,
+.low-risk {
+  background-color: #627d32 !important;
+  border-radius: 3px;
+  color: #000000 !important;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
+.high-efficacy {
+  background-color: #9bac7d !important;
+}
+
+.highest-efficacy {
+  background-color: #627d32 !important;
+  border-radius: 3px;
+  color: white !important;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 4px;
+  text-transform: uppercase;
+}
+
+.tooltip-inner .header {
+  border-bottom: 1px solid #c0c0c0;
+  font-weight: bold;
+  margin-bottom: 8px;
+  height: 28px;
+  font-size: .9rem;
+}
+
+.tooltip .row {
+  height: 20px;
+  margin-top: 12px;
+}
+
+.tooltip-inner {
+  background-color: #F0F0F0;
+  color: black;
+  padding: 10px;
+  border: .5px solid rgb(0, 0, 0);
+  box-shadow: 0 0 1rem rgba(0,0,0,0.25);
+  border-radius: 5px;
+  font-size: .75rem;
+  font-weight: normal;
+  line-height: normal;
+  text-align: left;
+  z-index: 987654321;
+  max-width: 650px;
+  opacity: 0.9;
+
+}
+
+.sub-label, label {
+  color: #5F5F5F;
+  font-size: .75rem;
+}
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.bs-popover-top .arrow::after,
+.bs-popover-auto[x-placement^="top"] .arrow::after {
+    border-top-color:black;
+}
+
+.bs-popover-top .arrow::after,
+.bs-popover-auto[x-placement^="bottom"] .arrow::after {
+    border-bottom-color:rgb(22, 22, 22);
+}
+
+.popover-inner{
+  border: none;
+}
+
+/* Liver Icon */
+.hidden{
+  display: none !important;
+}
+.consideration-hypoglycemia, .consideration-liver-hepatic {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 4px;
+  text-align: center;
+
+
+}
+.consideration-benefit {
+  --fa-primary-color: #627d32;
+  --fa-secondary-color: #c25608;
+  text-align: center;
+  font-size: 1.5rem;
+
+
+}
+.consideration-benefit-solid {
+  color: #627d32;
+  font-size: 1.5rem;
+  margin-right: 4px;
+  text-align: center;
+}
+
+
+/* Risk */
+.consideration-risk {
+  --fa-primary-color: #a32a2e;
+  --fa-secondary-color: #c25608;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-right: 4px;
+}
+.consideration-risk-solid {
+  color: #a32a2e;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-right: 4px;
+
+}
+
+.benefit-icon{
+  display: table;
+}
+
+.action-col{
+  button:focus{
+    outline:none;
+ }
+ button::-moz-focus-inner {
+  border: 0;
+}
+  .action-button{
+    
+
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 5px 15px 5px 38px;
+    font-size: 13px;
+    line-height: 17px;
+    color: #000000;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    word-wrap: none;
+    outline: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+
+  }
+  .blue{
+    background: #A1BCE1;
+  
+   }
+   .order-btn{
+    background: #D0D0CE;
+
+   }
+  .in-line-icon {
+    position: absolute;
+    left: 13px;
+    font-weight: bold;
+    display: inline;
+    color: white;
+  
+  }
+  .in-line-circle{
+     margin: 3px;
+      height: 10px;
+      width: 10px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .current-active-medic {
+      font-size: 1rem;
+      background-color: #f2cecf;
+      border: 1px solid #a32a2e;
+      border-radius: 4px;
+      text-align: center;
+      width: 100px;
+     }
+
+     .action-button.blue:not([class *= 'selected']):hover{
+      background: #6993D0;
+      color: #ffffff;
+     }  
+     .action-button.blue.selected {
+      background: #A1BCE1;
+      color: white;
+      background: #005E9D;
+     }
+
+}
+
+//guidline table
+.medication-group{
+  border: 2px solid #d0d0ce; 
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+.onGuidline-group {
+  border: 2px solid #cbddab;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+  height: auto;
+  transition: height 2s;
+
+}
+
+.onGuidline-suggestion{
+  background-color: #cbddab;
+  color: #000000;
+  border-bottom: 1px solid #cbddab; 
+}
+.offGuidline-suggestion {
+  background-color: #fefbf3;
+  border-bottom: 1px solid #d0d0ce; 
+
+}
+.combined-medication{
+  background-color: #fefbf3;
+
+  
+}
+
+.medication-subgroup {
+  font-weight: bold;
+  background-color: #EFEFEE;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  text-align: left;
+  border: none
+}
+
+.collapse-indicator.active {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+  
+  .medication-subgroup{
+    border: 2px solid green
+  }
+} 
+
+.collapse-indicator, .arrow-left {
+  margin-right: 5px;
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent; 
+  
+  border-left:8px solid black; 
+  transition: all 0.5s;
+}
+.collapse-body{
+  max-height: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+
+}
+.collapse-body.active{
+  max-height: 100vh;
+  
+}
+
+.subtable-container{
+  .offGuidline-suggestion {
+  background-color: #EFEFEE;
+  border:none;
+
+
+  }
+
+  .medication-group{
+  background-color: #EFEFEE;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  text-align: left;
+  border: none
+  }
+  .guidline-tittle{
+    display: none;
+  }
+
+}

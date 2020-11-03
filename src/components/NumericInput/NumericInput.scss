@@ -1,0 +1,59 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+.#{$ns}-numeric-input {
+  &.#{$ns}-small{
+    scale: 0.5;
+  }
+  // we need a very-specific selector here to override specificicty of selectors defined elsewhere.
+  .#{$ns}-button-group.#{$ns}-vertical > .#{$ns}-button {
+    // let the buttons shrink to equal heights
+    flex: 1 1 ($pt-button-height / 2 - 1);
+    min-height: 0;
+    padding: 0;
+    width: $pt-button-height;
+
+    &:first-child {
+      border-radius: 0 $pt-border-radius 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $pt-border-radius 0;
+    }
+  }
+
+  // fix button border radius when the buttons are on the left
+  .#{$ns}-button-group.#{$ns}-vertical {
+    &:first-child > .#{$ns}-button {
+      &:first-child {
+        border-radius: $pt-border-radius 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 0 $pt-border-radius;
+      }
+    }
+  }
+
+  &.#{$ns}-large .#{$ns}-button-group.#{$ns}-vertical > .#{$ns}-button {
+    width: $pt-button-height-large;
+  }
+  &.#{$ns}-small .#{$ns}-button-group.#{$ns}-vertical > .#{$ns}-button {
+    scale:0.5;
+  }
+}
+
+
+.NumericInput{
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 2px;
+  
+}
+
+.numericInputButton{
+  font-size: 15px;
+  color:red;
+  
+}

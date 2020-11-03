@@ -1,0 +1,85 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+.optum-callout {
+  background-color: rgba(115, 134, 148, 0.15);
+  border-radius: 3px;
+  padding: 10px 12px 9px;
+  position: relative;
+  display: inline-block;
+}
+
+.optum-callout::before {
+  color: #5c7080;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+.optum-callout.optum-intent-primary {
+  background-color: rgba(16, 107, 163, 0.35);
+}
+
+.optum-callout.optum-intent-success {
+  background-color: rgba(13, 128, 80, 0.35);
+}
+
+.optum-callout.optum-intent-warning {
+  background-color: rgba(191, 115, 38, 0.35);
+}
+
+.optum-callout.optum-intent-danger {
+  background-color: rgba(194, 48, 48, 0.35);
+}
+/*# sourceMappingURL=Callout.css.map */

@@ -1,0 +1,160 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+// @import "~bootstrap/scss/bootstrap";
+$underweight-color:#fbebbe;
+$Obese3-color: #C299A9;
+$Obese2-color: #EDB2B4;
+$Obese1-color: #FFBCA8;
+$Overweight-color: #FFD6A5;
+$Ideal-color: #B3E2D1;
+$graph-opacity: .5;
+$chart-font-family : Verdana, Geneva, Tahoma, sans-serif;
+
+
+.chart-container{
+  font-family: $chart-font-family;
+}
+.underweight {
+  fill: #fbebbe;
+  fill-opacity: $graph-opacity;
+}
+.ideal {
+  fill: $Ideal-color;
+  fill-opacity: $graph-opacity;
+}
+.overweight {
+  fill:$Overweight-color;
+  fill-opacity: $graph-opacity;
+}
+
+.highrange {
+  fill:$Obese1-color;
+  fill-opacity: $graph-opacity;
+}
+
+.highrange1 {
+  fill: $Obese1-color;
+  fill-opacity: $graph-opacity;
+}
+
+.highrange2 {
+  fill: $Obese2-color;
+  fill-opacity: $graph-opacity;
+}
+
+.chartBody {
+  width: 100% !important;
+}
+
+.chart-today-line{
+    stroke: #000000;
+    fill: #000000;
+    stroke-width: 2px;
+}
+.chartcontents {
+  position: relative;
+  overflow: hidden;
+  width: 625px;
+  height: 450px;
+  text-align: left;
+  line-height: normal;
+  z-index: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
+}
+
+.chart-table-warp {
+  margin-left: 1rem;
+}
+
+.bmi-legend-container{
+  font-family: $chart-font-family;
+  font-size: .85rem;
+  ul{
+    list-style: none;
+    margin-left: 1.5rem;
+    li{
+      text-align: none;
+      display: flex;
+    align-items: center;
+    vertical-align: middle;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: .5rem;
+      }
+      &::after{
+        content: "";
+        display: block;
+      }
+      
+    }
+  }
+  .legend-underweight{
+    &::before{
+      background-color: $underweight-color;
+    }
+  }
+  .legend-ideal{
+    &::before{
+      background-color: $Ideal-color;
+    }
+  }
+  .legend-overweight{
+    &::before{
+      background-color: $Overweight-color;
+    }
+  }
+  .legend-highrange{
+    &::before{
+      background-color: $Obese1-color;
+    }
+  }
+  .legend-highrange1{
+    &::before{
+      background-color: $Obese2-color;
+    }
+  }
+  .legend-highrange2{
+    &::before{
+      background-color: $Obese3-color;
+    }
+  }
+}
+
+.bmichart-table-contents{
+  max-width: 500px;
+.bmichart-table{
+    width: 100%;
+    font-size: .85rem;
+    font-family: $chart-font-family;
+    background-color: #ffffff !important;
+    th {
+      font-weight: bold;
+      background-color: white;
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+      text-align: left;
+      word-wrap: none;
+      padding: .5rem 1rem;
+
+  }
+  td {
+    padding: .5rem 1rem;
+    text-align: left;
+  }
+  .bmichart-table-row{
+    &.in-focus{
+      border-left: .5rem solid #2F1986;
+      background-color: #E1DCEE;
+    }
+  }
+}
+ }
+
+ .highcharts-point{
+   fill-opacity: 1;
+ }

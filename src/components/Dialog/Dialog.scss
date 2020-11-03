@@ -1,0 +1,73 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+@import "../../common/transition";
+
+$dialog-border-radius: $pt-border-radius * 2 !default;
+$dialog-margin: ($pt-grid-size * 3) 0 !default;
+$dialog-padding: $pt-grid-size * 2 !default;
+
+.#{$ns}-dialog-container{
+  $transition-props: (
+    opacity: (0, 1),
+    transform: (scale(0.5), scale(1))
+  );
+ 
+  @include transition(
+    "#{$ns}-overlay",
+    $transition-props,
+    $transitionDuration: $pt-transition-duration * 3,
+    $transitionEasing: $pt-transition-ease-bounce,
+    $before: "&",
+    $after: "> .#{$ns}-dialog"
+  );
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+}
+
+
+.#{$ns}-dialog {
+  background: $light-gray2;
+  border-radius: $dialog-border-radius;
+  box-shadow: $pt-dialog-box-shadow;
+  display: flex;
+  flex-direction: column;
+  margin: $dialog-margin;
+  padding-bottom: $pt-grid-size * 2;
+  pointer-events: all;
+  user-select: text;
+  width: $pt-grid-size * 50;
+
+  &:focus {
+    outline: 0;
+  }
+
+ 
+}
+
+.#{$ns}-dialog-body {
+  flex: 1 1 auto;
+  line-height: $pt-grid-size * 1.8;
+  margin: $dialog-padding;
+}
+
+
+.#{$ns}-dialog-footer {
+  flex: 0 0 auto;
+  margin: 0 $dialog-padding;
+}
+
+.#{$ns}-dialog-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  .#{$ns}-button {
+    margin-left: $pt-grid-size;
+  }
+}

@@ -1,0 +1,205 @@
+@import "colors";
+@import "flex";
+
+$pt-intent-colors: (
+  "primary": $pt-intent-primary,
+  "success": $pt-intent-success,
+  "warning": $pt-intent-warning,
+  "danger": $pt-intent-danger,
+) !default;
+
+$pt-intent-text-colors: (
+  "primary": $blue2,
+  "success": $green2,
+  "warning": $orange2,
+  "danger": $red2,
+) !default;
+
+$pt-dark-intent-text-colors: (
+  "primary": $blue5,
+  "success": $green5,
+  "warning": $orange5,
+  "danger": $red5,
+) !default;
+
+@mixin intent-color($intentName) {
+  color: map-get($pt-intent-colors, $intentName);
+}
+
+@mixin position-all($position, $value) {
+  bottom: $value;
+  left: $value;
+  position: $position;
+  right: $value;
+  top: $value;
+}
+
+@mixin base-typography() {
+  font-size: $pt-font-size;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: $pt-line-height;
+  text-transform: none;
+}
+
+@mixin running-typography() {
+  font-size: $pt-font-size;
+  line-height: 1.5;
+}
+
+@mixin heading-typography() {
+  color: $pt-heading-color;
+  font-weight: 600;
+
+  .#{$ns}-dark & {
+    color: $pt-dark-heading-color;
+  }
+}
+
+@mixin monospace-typography() {
+  font-family: $pt-font-family-monospace;
+  text-transform: none;
+}
+
+@mixin overflow-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@mixin focus-outline($offset: 2px) {
+  outline: $pt-outline-color auto 2px;
+  outline-offset: $offset;
+  -moz-outline-radius: 6px;
+}
+
+@function border-shadow($alpha, $color: $black, $size: 1px) {
+  @return 0 0 0 $size rgba($color, $alpha);
+}
+
+@function centered-text(
+  $height,
+  $line-height: floor($pt-font-size * $pt-line-height)
+) {
+  @return floor(($height - $line-height) / 2);
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin force-hardware-acceleration() {
+  transform: translateZ(0);
+}
+
+@mixin new-render-layer() {
+  @include force-hardware-acceleration();
+}
+@mixin react-transition(
+  $name,
+  $properties,
+  $duration: $pt-transition-duration,
+  $easing: $pt-transition-ease,
+  $delay: 0,
+  $before: "",
+  $after: ""
+) {
+  @include each-prop($properties, 2);
+  @include react-transition-phase(
+    $name,
+    "enter",
+    $properties,
+    $duration,
+    $easing,
+    $delay,
+    $before,
+    $after
+  );
+  @include react-transition-phase(
+    $name,
+    "exit",
+    $properties,
+    $duration,
+    $easing,
+    $delay,
+    $before,
+    $after
+  );
+}
+
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+@mixin react-transition-phase(
+  $name,
+  $phase,
+  $properties,
+  $duration: $pt-transition-duration,
+  $easing: $pt-transition-ease,
+  $delay: 0,
+  $before: "",
+  $after: ""
+) {
+  $start-index: 1;
+  $end-index: 2;
+
+  @if ($phase == "exit") {
+    $start-index: 2;
+    $end-index: 1;
+  } @else if ($phase != "enter" and $phase != "appear") {
+    @error "Unknown transition phase: #{$phase}. Expected appear|enter|exit.";
+  }
+
+  #{transition-name($phase, $name, $before, $after)} {
+    @include each-prop($properties, $start-index);
+  }
+
+  #{transition-name(#{$phase}-active, $name, $before, $after)} {
+    @include each-prop($properties, $end-index);
+    transition-delay: $delay;
+    transition-duration: $duration;
+    transition-property: map-keys($properties);
+    transition-timing-function: $easing;
+  }
+}
+
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+@mixin each-prop($properties, $index) {
+  @each $prop, $values in $properties {
+    #{$prop}: nth($values, $index);
+  }
+}
+
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+@function transition-name($phase, $name, $before, $after) {
+  $full-name: "#{$before}.#{$name}-#{$phase}#{$after}";
+
+  @if ($phase == "enter") {
+    @return ($full-name, transition-name("appear", $name, $before, $after));
+  } @else if ($phase == "enter-active") {
+    @return (
+      $full-name,
+      transition-name("appear-active", $name, $before, $after)
+    );
+  } @else {
+    @return $full-name;
+  }
+}

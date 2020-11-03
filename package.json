@@ -1,0 +1,98 @@
+{
+  "name": "ux-react-component-library",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "files": [
+    "build"
+  ],
+  "types": "build/index.d.ts",
+  "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
+  "scripts": {
+    "start": "rollup -c --watch",
+    "build": "rollup -c",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "storybook": "start-storybook -s ./public -p 6007",
+    "storybook:export": "build-storybook -s ./public",
+    "generate": "node ./util/create-component",
+    "prepublishOnly": "npm run build",
+    "publish_gh_pages": "rm -rf storybook-static/.git && cd storybook-static && git init && git add . && git commit -m \"Initial commit\" && git remote add github git@github.optum.com:SofaSurfers/ui-components.git && git push --force github master:gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rrana1/react-component-library.git"
+  },
+  "keywords": [
+    "React",
+    "Component",
+    "Library",
+    "Rollup",
+    "Typescript",
+    "Sass",
+    "Storybook"
+  ],
+  "author": "R Rana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rrana1/react-component-library/issues"
+  },
+  "homepage": "https://github.com/rrana1/react-component-library#readme",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-docs": "^6.0.26",
+    "@storybook/addon-info": "^5.3.21",
+    "@storybook/addon-knobs": "^6.0.26",
+    "@storybook/addon-storysource": "^6.0.26",
+    "@storybook/addons": "^6.0.26",
+    "@storybook/react": "^6.0.26",
+    "@storybook/theming": "^6.0.26",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.0.24",
+    "@types/react": "^16.9.12",
+    "@types/react-dom": "^16.9.8",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "rollup": "^1.27.4",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "sass-loader": "^8.0.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.4.4",
+    "bootstrap": "^4.5.0",
+    "highcharts": "^8.2.0",
+    "highcharts-react-official": "^3.0.0",
+    "lodash": "^4.17.19",
+    "marked": "^1.2.0",
+    "moment": "^2.27.0",
+    "popper.js": "^1.16.1",
+    "react-bootstrap": "^1.3.0",
+    "react-markdown": "^4.3.1",
+    "react-popover": "^0.5.10",
+    "react-popper": "^2.2.3",
+    "react-selectable-fast": "^3.4.0",
+    "react-transition-group": "^4.4.1",
+    "reactstrap": "^8.5.1"
+  }
+}

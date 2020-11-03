@@ -1,0 +1,69 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+.optum-navbar-fixed-to-top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.optum-navbar {
+  height: 60px;
+  position: relative;
+  background-color: #202b33;
+  border: 10px #10161a;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.optum-navbar-divider {
+  border-left: 1px solid #ffffff;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.optum-navbar-group {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ffffff;
+}
+
+.optum-navbar-group.optum-align-right {
+  float: right;
+}
+
+.optum-navbar-group.optum-align-left {
+  float: left;
+}
+
+.optum-navbar-group.optum-align-center {
+  position: absolute;
+  left: 50%;
+}
+
+.optum-navbar-header {
+  font-size: 14px;
+  margin-right: 15px;
+}
+/*# sourceMappingURL=NavBar.css.map */

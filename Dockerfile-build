@@ -1,0 +1,13 @@
+FROM node:14.3.0-alpine
+
+RUN npm config set registry https://repo1.uhc.com/artifactory/api/npm/npm-virtual/
+
+WORKDIR /
+
+COPY . .
+
+RUN npm ci
+
+RUN npm run storybook:export
+
+CMD ls storybook-static/index.html

@@ -1,0 +1,12 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+.#{$ns}-text-overflow-ellipsis{
+  // background-color: $blue1;
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  
+}
+// @debug "#{$ns}-text-overflow-ellipsis"

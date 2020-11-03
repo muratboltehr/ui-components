@@ -1,0 +1,71 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+.optum-fileinput {
+  display: inline-block;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 30px;
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: auto;
+  border: 2px solid lightgray;
+  white-space: nowrap;
+}
+
+.optum-fileinput.optum-fill {
+  width: 100%;
+}
+
+.optum-fileinput.optum-large,
+.optum-large .optum-fileinput {
+  height: 40px;
+}
+
+#outerDiv {
+  padding-left: 9px;
+  padding-top: 2.7px;
+  padding-right: 1.8px;
+  padding-bottom: 2.1px;
+}
+
+#labelDiv {
+  padding-top: 2.7px;
+  padding-bottom: 2.1px;
+  width: 144px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: lightgrey;
+}
+
+.optum-disabled {
+  pointer-events: none;
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+.optum-large {
+  padding-left: 9px;
+  padding-top: 9px;
+  padding-right: 9px;
+  padding-bottom: 4.5px;
+  zoom: 1.1;
+}
+/*# sourceMappingURL=FileInput.css.map */

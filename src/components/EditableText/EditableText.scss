@@ -1,0 +1,75 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+@import "../../common.scss";
+
+$input-shadow-color-focus: $pt-intent-primary !default;
+@function input-transition-shadow($color: $input-shadow-color-focus, $focus: false) {
+  @if $focus {
+    @return
+      border-shadow(1, $color, 1px),
+      border-shadow(0.3, $color, 3px);
+  } @else {
+    @return
+      border-shadow(0, $color, 0),
+      border-shadow(0, $color, 0);
+  }
+}
+
+$input-box-shadow-focus: inset 0 1px 1px rgba($black, $pt-drop-shadow-opacity) !default;
+.#{$ns}-editable-text{
+  // cursor: text;
+  // display: inline-block;
+  max-width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  vertical-align: top;
+  white-space: nowrap;
+  
+  // background-color: red;
+  &[contentEditable]:hover{
+    box-shadow: input-transition-shadow($input-shadow-color-focus),
+                  inset 0 0 0 1px $pt-divider-black;
+  }
+
+  &[contentEditable]:empty:before {
+    content:attr(placeholder);
+    color:gray
+  }
+  
+  &[contentEditable]:focus{
+    box-shadow: input-transition-shadow($input-shadow-color-focus, true), $input-box-shadow-focus;
+    outline: 0px solid transparent;
+    border: none;
+  }
+
+  // &.#{$ns}-singleline *{
+  //   display:inline;
+  //   white-space:nowrap;
+  // }
+  &.#{$ns}-singleline br{
+    
+    display: none;
+
+  }
+
+  &.#{$ns}-disabled{
+    pointer-events: none;
+  }
+
+  &.#{$ns}-selectallonfocus{
+    user-select: all;
+  }
+}
+
+@each $intent, $color in $pt-intent-colors {
+  .#{$ns}-editable-text.#{$ns}-intent-#{$intent} {
+    color: $color;
+    &[contentEditable]:focus{
+      box-shadow: input-transition-shadow($color, true), $input-box-shadow-focus;
+      outline: 0px solid transparent;
+      border: none;
+    }
+  
+  }
+}

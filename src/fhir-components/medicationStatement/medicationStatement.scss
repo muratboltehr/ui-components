@@ -1,0 +1,28 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+// @import "~bootstrap/scss/bootstrap";
+
+.table {
+  font-size: 0.75rem;
+}
+.caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #6c757d;
+  text-align: left;
+  caption-side: bottom;
+  font-size: 0.75rem;
+}
+
+.col125 {
+  width: 125px;
+}
+
+.col100 {
+  width: 100px;
+}
+
+.col50 {
+  width: 50px;
+}

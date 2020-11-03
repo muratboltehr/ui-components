@@ -1,0 +1,145 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+CSS `border` property issues:
+- An element can only have one border.
+- Borders can't stack with shadows.
+- Borders modify the size of the element they're applied to.
+- Border positioning requires the extra `box-sizing` property.
+
+`box-shadow` doesn't have these issues, we're using it instead of `border`.
+*/
+/*
+Overlay shadows are used for default buttons
+floating on top of other elements. This way, the
+shadows blend with the colors beneath it.
+Switches and slider handles both use these variables.
+*/
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.optum-spinner {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.optum-spinner-track {
+  stroke: #ced9e0;
+  position: relative;
+}
+
+.optum-spinner-animation {
+  -webkit-animation: spin 0.5s linear infinite;
+          animation: spin 0.5s linear infinite;
+}
+
+.optum-spinner-nospin {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.optum-intent-primary {
+  stroke: #106ba3;
+  stroke-linecap: round;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: stroke-dashoffset 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+  transition: stroke-dashoffset 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+}
+
+.optum-intent-danger {
+  stroke: #c23030;
+  stroke-linecap: round;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: stroke-dashoffset;
+  transition: stroke-dashoffset;
+}
+
+.optum-intent-warning {
+  stroke: #bf7326;
+  stroke-linecap: round;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: stroke-dashoffset;
+  transition: stroke-dashoffset;
+}
+
+.optum-intent-success {
+  stroke: #0d8050;
+  stroke-linecap: round;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: stroke-dashoffset;
+  transition: stroke-dashoffset;
+}
+
+svg {
+  display: block;
+}
+
+path {
+  fill-opacity: 0;
+}
+/*# sourceMappingURL=Spinner.css.map */

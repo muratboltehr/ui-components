@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$list-of-elevations: (
+  $pt-elevation-shadow-0 $pt-elevation-shadow-1 $pt-elevation-shadow-2
+    $pt-elevation-shadow-3 $pt-elevation-shadow-4
+);
+
+.#{$ns}-card {
+  background-color: $white;
+  border-radius: $pt-border-radius;
+  box-shadow: $pt-elevation-shadow-0;
+  padding: $pt-card-padding;
+}
+
+/**
+ * When a cursor is hovered over the car the shadow elevation is changed to 
+ * level 3
+ * When card is clicked on, the elevation shadow level goes to 1. 
+ */
+.#{$ns}-card.#{$ns}-interactive {
+  &:hover {
+    cursor: pointer;
+    box-shadow: $pt-elevation-shadow-3;
+  }
+
+  &:active {
+    box-shadow: $pt-elevation-shadow-1;
+  }
+}
+
+/**
+ * This for loop is being used to access the list of avalable elevation shadows
+ * and sets the box-shadow based on the user's selection 
+ */
+
+@for $i from 1 through length($list-of-elevations) {
+  .#{$ns}-elevation-#{$i - 1} {
+    box-shadow: nth($list-of-elevations, $i);
+  }
+}

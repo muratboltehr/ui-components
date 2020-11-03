@@ -1,0 +1,17 @@
+{
+    "version": 3,
+    "mappings": "AIsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE;AJ3LF,AAAA,eAAe,CAAC;EACd,gBAAgB,EEkBV,OAAO;EFjBb,MAAM,EAAE,GAAG,CAAC,KAAK,CEHX,OAAO;EFIb,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,MAAM;CAUnB;;AAfD,AAOE,eAPa,CAOb,QAAQ,CAAC;EQPT,WAAW,EAHC,aAAa,EAAE,SAAS,EAAE,KAAK,EAAE,UAAU;EASvD,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;CREhB;;AATH,AAWE,eAXa,AAWZ,yBAAyB,CAAC;EACzB,gBAAgB,EEbZ,OAAO;EFcX,KAAK,EEMD,OAAO;CFLZ",
+    "sources": [
+        "TestComponent.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss",
+        "../../typography.scss"
+    ],
+    "names": [],
+    "file": "TestComponent.css"
+}

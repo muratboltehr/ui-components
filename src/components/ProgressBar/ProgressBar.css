@@ -1,0 +1,86 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+@-webkit-keyframes progress-bar-keyframe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 30px 0;
+  }
+}
+@keyframes progress-bar-keyframe {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 30px 0;
+  }
+}
+
+/** Css for the outer div of the progress bar
+*/
+.optum-progressbar {
+  display: block;
+  border-radius: 40px;
+  background: rgba(92, 112, 128, 0.2);
+  position: relative;
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+  /* Css responsible for the animation in the inner div progress bar*/
+  /*Only shows animation if the animation is not deactivated or stripes is not deactivated*/
+}
+
+.optum-progressbar .optum-progress-bar-activated {
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%);
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+  background-color: rgba(92, 112, 128, 0.8);
+  position: absolute;
+  -webkit-transition: width 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+  transition: width 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+  background-size: 30px 30px;
+}
+
+.optum-progressbar:not(.optum-progress-animation-deactivated):not(.optum-progress-stripes-deactivated) .optum-progress-bar-activated {
+  animation: progress-bar-keyframe 300ms linear infinite reverse;
+}
+
+.optum-progressbar.optum-no-stripes .optum-progress-bar-activated {
+  background-image: none;
+  background-color: red;
+}
+
+.optum-progressbar.optum-intent-primary .optum-progress-bar-activated {
+  background-color: #137CBD;
+}
+
+.optum-progressbar.optum-intent-success .optum-progress-bar-activated {
+  background-color: #0f9960;
+}
+
+.optum-progressbar.optum-intent-warning .optum-progress-bar-activated {
+  background-color: #d9822b;
+}
+
+.optum-progressbar.optum-intent-danger .optum-progress-bar-activated {
+  background-color: #db3737;
+}
+/*# sourceMappingURL=ProgressBar.css.map */

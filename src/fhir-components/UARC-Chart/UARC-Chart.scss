@@ -1,0 +1,64 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$uarc-normal-color:#FFBCA8;
+$uarc-moderate-color:#FFD6A5;
+$uarc-advance-color:#B3E2D1;
+$uarc-graph-opacity :.5;
+
+
+.uarc-advance-range{
+  fill:$uarc-advance-color;
+  fill-opacity: $uarc-graph-opacity;
+}
+
+.uarc-moderate-range{
+  fill: $uarc-moderate-color;
+  fill-opacity: $uarc-graph-opacity;
+}
+
+.uarc-normal-range{
+  fill: $uarc-normal-color;
+  fill-opacity: $uarc-graph-opacity;
+}
+
+.uarc-legend-container{
+  font-size: 0.85rem;
+  ul{
+    list-style: none;
+    margin-left: 1.5rem;
+    li{
+      text-align: none;
+      display: flex;
+    align-items: center;
+    vertical-align: middle;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: .5rem;
+      }
+      &::after{
+        content: "";
+        display: block;
+      }
+      
+    }
+  }
+  .uarc-advance{
+    &::before{
+    background-color: $uarc-advance-color;
+    }
+  }
+  .uarc-moderate{
+    &::before{
+
+    background-color: $uarc-moderate-color;
+  }}
+  .uarc-normal{
+    &::before{
+    background-color: $uarc-normal-color;
+  }}
+}

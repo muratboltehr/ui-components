@@ -1,0 +1,25 @@
+.table {
+  font-size: 0.75rem;
+}
+
+.caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #6c757d;
+  text-align: left;
+  caption-side: bottom;
+  font-size: 0.75rem;
+}
+
+.col150 {
+  width: 150px;
+}
+
+.col100 {
+  width: 100px;
+}
+
+.col50 {
+  width: 50px;
+}
+/*# sourceMappingURL=allergy.css.map */

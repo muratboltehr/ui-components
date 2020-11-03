@@ -1,0 +1,65 @@
+@import "../../variables.scss";
+
+$progress-stripescolor: rgba($white, 0.2) !default;
+$progress-color: rgba($gray1, 0.2) !default;
+$progress-height: round($pt-grid-size * 0.8) !default;
+$progress-stripesize: $pt-grid-size * 3 !default;
+$progress-bar-color: rgba($gray1, 0.8) !default;
+$progress-radius: $pt-grid-size * 4 !default;
+
+$progress-gradient: linear-gradient(
+  -45deg,
+  $progress-stripescolor 25%,
+  transparent 25%,
+  transparent 50%,
+  $progress-stripescolor 50%,
+  $progress-stripescolor 75%,
+  transparent 75%
+) !default;
+
+@keyframes progress-bar-keyframe {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: $progress-stripesize 0;
+  }
+}
+/** Css for the outer div of the progress bar
+*/
+.#{$ns}-progressbar {
+  display: block;
+  border-radius: $progress-radius;
+  background: $progress-color;
+  position: relative;
+  height: $progress-height;
+  width: 100%;
+  overflow: hidden;
+  /* Css responsible for the animation in the inner div progress bar*/
+  .#{$ns}-progress-bar-activated {
+    background: $progress-gradient;
+    height: 100%;
+    width: 100%;
+    border-radius: $progress-radius;
+    background-color: $progress-bar-color;
+    position: absolute;
+    transition: width ($pt-transduration * 2) $pt-transease;
+    background-size: $progress-stripesize $progress-stripesize;
+  }
+/*Only shows animation if the animation is not deactivated or stripes is not deactivated*/
+  &:not(.#{$ns}-progress-animation-deactivated):not(.#{$ns}-progress-stripes-deactivated) .#{$ns}-progress-bar-activated {
+    animation: progress-bar-keyframe ($pt-transduration * 3) linear infinite reverse;
+  }
+
+  &.#{$ns}-no-stripes .#{$ns}-progress-bar-activated {
+    background-image: none;
+    background-color: red;
+  }
+}
+
+@each $intent, $color in $pt-intent-colors {
+  .#{$ns}-progressbar.#{$ns}-intent-#{$intent} .#{$ns}-progress-bar-activated {
+    background-color: $color;
+  }
+}

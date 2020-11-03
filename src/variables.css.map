@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "mappings": "AGsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE",
+    "sources": [
+        "variables.scss",
+        "styles/_colors.scss",
+        "styles/_color-aliases.scss",
+        "styles/_mixins.scss",
+        "styles/_colors.scss",
+        "styles/_color-aliases.scss",
+        "styles/_flex.scss"
+    ],
+    "names": [],
+    "file": "variables.css"
+}

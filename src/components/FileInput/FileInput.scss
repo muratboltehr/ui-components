@@ -1,0 +1,99 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$file-input-button-width: $pt-grid-size * 7 !default;
+$file-input-button-width-large: $pt-grid-size * 8.5 !default;
+
+.#{$ns}-fileinput{
+  display: inline-block;
+  
+  // position: relative;
+  // flex-wrap: wrap;
+  justify-content: space-between;
+  height: $pt-input-height;
+  cursor: pointer;
+  width: max-content;
+  margin-right: auto;
+  // overflow: hidden;
+  // border-style:solid;
+  
+  border:2px solid lightgray;
+  // box-shadow:1px 1px;
+  // outline: 1px dotted grey;
+	// outline: -webkit-focus-ring-color auto 5px;
+  white-space: nowrap;
+
+  &.#{$ns}-fill {
+    width: 100%;
+  }
+  
+
+  
+
+  &.#{$ns}-large,
+  .#{$ns}-large & {
+    height: $pt-input-height-large;
+  }
+}
+
+#outerDiv{
+  padding-left:$pt-input-width*0.05 ;
+  padding-top: $pt-input-height*0.09;
+  padding-right:$pt-input-width*0.01 ;
+  padding-bottom: $pt-input-height*0.07;
+}
+
+
+#labelDiv{
+  // padding-left:$pt-input-width*0.05 ;
+  padding-top: $pt-input-height*0.09;
+  // padding-right:$pt-input-width*0.05 ;
+  padding-bottom: $pt-input-height*0.07;
+  width: $pt-input-width*0.8;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  color:lightgrey
+}
+
+.#{$ns}-disabled{
+  pointer-events: none;
+  background-color:rgba(lightgray,0.3);
+
+}
+
+.#{$ns}-large{
+  padding-left:$pt-input-width*0.05 ;
+  padding-top: $pt-input-height*0.3;
+  padding-right:$pt-input-width*0.05 ;
+  padding-bottom: $pt-input-height*0.15;
+  zoom: 1.1;
+}
+// .button{
+//   padding-right: 10px;
+// }
+// .#{$ns}-fileinput::-webkit-file-upload-button{
+//   -webkit-appearance: none;
+//    float: right;
+//    margin: 0 0 0 10px;
+//    border: 1px solid #aaaaaa;
+//    border-radius: 4px;
+//    background-image: -webkit-gradient(linear, left bottom, left top, from(#d2d0d0), to(#f0f0f0));
+//    background-image: -moz-linear-gradient(90deg, #d2d0d0 0%, #f0f0f0 100%);
+// }
+
+// .#{$ns}-fileinput::-webkit-file-upload-button::after{
+//   content:'Browse...';
+//   left: 100%;
+//   margin-left:3px;
+//   position: relative;
+//   -webkit-appearance: button;
+//   padding: 3px 8px 2px;
+//   border:0px;
+// }
+// .#{$ns}-file-upload-input{
+//   left:100;
+//   right:0;
+//   top:0;
+//   background-color: red;
+// }

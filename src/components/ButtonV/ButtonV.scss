@@ -1,0 +1,9 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../common.scss";
+@import "./_buttoncommon";
+
+.#{$ns}-button {
+  @include pt-button-base();
+  @include pt-button-height($pt-button-height);
+}

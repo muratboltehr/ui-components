@@ -1,0 +1,135 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+CSS `border` property issues:
+- An element can only have one border.
+- Borders can't stack with shadows.
+- Borders modify the size of the element they're applied to.
+- Border positioning requires the extra `box-sizing` property.
+
+`box-shadow` doesn't have these issues, we're using it instead of `border`.
+*/
+/*
+Overlay shadows are used for default buttons
+floating on top of other elements. This way, the
+shadows blend with the colors beneath it.
+Switches and slider handles both use these variables.
+*/
+.optum-editable-text {
+  max-width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.optum-editable-text[contentEditable]:hover {
+  -webkit-box-shadow: 0 0 0 0 rgba(19, 124, 189, 0), 0 0 0 0 rgba(19, 124, 189, 0), inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+          box-shadow: 0 0 0 0 rgba(19, 124, 189, 0), 0 0 0 0 rgba(19, 124, 189, 0), inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+}
+
+.optum-editable-text[contentEditable]:empty:before {
+  content: attr(placeholder);
+  color: gray;
+}
+
+.optum-editable-text[contentEditable]:focus {
+  -webkit-box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+  outline: 0px solid transparent;
+  border: none;
+}
+
+.optum-editable-text.optum-singleline br {
+  display: none;
+}
+
+.optum-editable-text.optum-disabled {
+  pointer-events: none;
+}
+
+.optum-editable-text.optum-selectallonfocus {
+  -webkit-user-select: all;
+     -moz-user-select: all;
+      -ms-user-select: all;
+          user-select: all;
+}
+
+.optum-editable-text.optum-intent-primary {
+  color: #137CBD;
+}
+
+.optum-editable-text.optum-intent-primary[contentEditable]:focus {
+  -webkit-box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+  outline: 0px solid transparent;
+  border: none;
+}
+
+.optum-editable-text.optum-intent-success {
+  color: #0f9960;
+}
+
+.optum-editable-text.optum-intent-success[contentEditable]:focus {
+  -webkit-box-shadow: 0 0 0 1px #0f9960, 0 0 0 3px rgba(15, 153, 96, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px #0f9960, 0 0 0 3px rgba(15, 153, 96, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+  outline: 0px solid transparent;
+  border: none;
+}
+
+.optum-editable-text.optum-intent-warning {
+  color: #d9822b;
+}
+
+.optum-editable-text.optum-intent-warning[contentEditable]:focus {
+  -webkit-box-shadow: 0 0 0 1px #d9822b, 0 0 0 3px rgba(217, 130, 43, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px #d9822b, 0 0 0 3px rgba(217, 130, 43, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+  outline: 0px solid transparent;
+  border: none;
+}
+
+.optum-editable-text.optum-intent-danger {
+  color: #db3737;
+}
+
+.optum-editable-text.optum-intent-danger[contentEditable]:focus {
+  -webkit-box-shadow: 0 0 0 1px #db3737, 0 0 0 3px rgba(219, 55, 55, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          box-shadow: 0 0 0 1px #db3737, 0 0 0 3px rgba(219, 55, 55, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+  outline: 0px solid transparent;
+  border: none;
+}
+/*# sourceMappingURL=EditableText.css.map */

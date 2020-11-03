@@ -1,0 +1,523 @@
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+A mixin to generate the classes for one phase of a React CSSTransition.
+`$phase` must be `appear` or `enter` or `exit`.
+If `enter` phase is given then `appear` phase will be generated at the same time.
+If `exit` phase is given then property values are animated in reverse, from final to initial.
+**Example:**
+@include react-transition-phase(toast, enter, $enter-translate, $before: "&");
+@include react-transition-phase(toast, leave, $leave-blur, $pt-transition-duration * 3, $before: "&");
+*/
+/*
+Given map of properties to values, set each property to the value at the given index.
+(remember that sass indices are 1-based).
+Example: `each-prop((opacity: 0 1), 2)` will print "opacity: 1"
+*/
+/*
+Format transition class name with all the bits.
+"enter" phase will include "appear" phase in returned name.
+*/
+/*
+CSS `border` property issues:
+- An element can only have one border.
+- Borders can't stack with shadows.
+- Borders modify the size of the element they're applied to.
+- Border positioning requires the extra `box-sizing` property.
+
+`box-shadow` doesn't have these issues, we're using it instead of `border`.
+*/
+/*
+Overlay shadows are used for default buttons
+floating on top of other elements. This way, the
+shadows blend with the colors beneath it.
+Switches and slider handles both use these variables.
+*/
+.optum-button-group {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  /*
+  Responsive
+
+  Markup:
+  <div class="optum-button-group optum-large optum-fill">
+    <a class="optum-button optum-intent-primary optum-fixed" tabindex="0" role="button">Start</a>
+    <a class="optum-button optum-intent-primary" tabindex="0" role="button">Left</a>
+    <a class="optum-button optum-intent-primary optum-active" tabindex="0" role="button">Middle</a>
+    <a class="optum-button optum-intent-primary" tabindex="0" role="button">Right</a>
+    <a class="optum-button optum-intent-primary optum-fixed" tabindex="0" role="button">End</a>
+  </div>
+  <br />
+  <div class="optum-button-group optum-fill">
+    <button class="optum-button optum-icon-arrow-left"></button>
+    <button class="optum-button optum-fill">Middle</button>
+    <button class="optum-button optum-icon-arrow-right"></button>
+  </div>
+
+  Styleguide button-group}-fill
+  */
+  /*
+  Vertical button groups
+
+  Markup:
+  <div class="optum-button-group optum-vertical">
+    <a class="optum-button optum-icon-search-template" role="button" tabindex="0"></a>
+    <a class="optum-button optum-icon-zoom-in" role="button" tabindex="0"></a>
+    <a class="optum-button optum-icon-zoom-out" role="button" tabindex="0"></a>
+    <a class="optum-button optum-icon-zoom-to-fit" role="button" tabindex="0"></a>
+  </div>
+  <div class="optum-button-group optum-vertical">
+    <button type="button" class="optum-button optum-active">Home</button>
+    <button type="button" class="optum-button">Pages</button>
+    <button type="button" class="optum-button">Blog</button>
+    <button type="button" class="optum-button">Calendar</button>
+  </div>
+  <div class="optum-button-group optum-vertical optum-align-left optum-large">
+    <button type="button" class="optum-button optum-intent-primary optum-icon-document">Text</button>
+    <button type="button" class="optum-button optum-intent-primary optum-icon-media optum-active">Media</button>
+    <button type="button" class="optum-button optum-intent-primary optum-icon-link">Sources</button>
+  </div>
+
+  Styleguide button-group-vertical
+  */
+}
+
+.optum-button-group .optum-button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  z-index: 4;
+}
+
+.optum-button-group .optum-button:focus {
+  z-index: 5;
+}
+
+.optum-button-group .optum-button:hover {
+  z-index: 6;
+}
+
+.optum-button-group .optum-button:active, .optum-button-group .optum-button.optum-active {
+  z-index: 7;
+}
+
+.optum-button-group .optum-button:disabled, .optum-button-group .optum-button.optum-disabled {
+  z-index: 3;
+}
+
+.optum-button-group .optum-button[class*="optum-intent-"] {
+  z-index: 9;
+}
+
+.optum-button-group .optum-button[class*="optum-intent-"]:focus {
+  z-index: 10;
+}
+
+.optum-button-group .optum-button[class*="optum-intent-"]:hover {
+  z-index: 11;
+}
+
+.optum-button-group .optum-button[class*="optum-intent-"]:active, .optum-button-group .optum-button[class*="optum-intent-"].optum-active {
+  z-index: 12;
+}
+
+.optum-button-group .optum-button[class*="optum-intent-"]:disabled, .optum-button-group .optum-button[class*="optum-intent-"].optum-disabled {
+  z-index: 8;
+}
+
+.optum-button-group:not(.optum-minimal) > .optum-popover-wrapper:not(:first-child) .optum-button,
+.optum-button-group:not(.optum-minimal) > .optum-button:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.optum-button-group:not(.optum-minimal) > .optum-popover-wrapper:not(:last-child) .optum-button,
+.optum-button-group:not(.optum-minimal) > .optum-button:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  margin-right: -1px;
+}
+
+.optum-button-group.optum-minimal .optum-button {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.optum-button-group.optum-minimal .optum-button:hover {
+  background: rgba(167, 182, 194, 0.3);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #182026;
+  text-decoration: none;
+}
+
+.optum-button-group.optum-minimal .optum-button:active, .optum-button-group.optum-minimal .optum-button.optum-active {
+  background: rgba(115, 134, 148, 0.3);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #182026;
+}
+
+.optum-button-group.optum-minimal .optum-button:disabled, .optum-button-group.optum-minimal .optum-button:disabled:hover, .optum-button-group.optum-minimal .optum-button.optum-disabled, .optum-button-group.optum-minimal .optum-button.optum-disabled:hover {
+  background: none;
+  color: rgba(92, 112, 128, 0.6);
+  cursor: not-allowed;
+}
+
+.optum-button-group.optum-minimal .optum-button:disabled.optum-active, .optum-button-group.optum-minimal .optum-button:disabled:hover.optum-active, .optum-button-group.optum-minimal .optum-button.optum-disabled.optum-active, .optum-button-group.optum-minimal .optum-button.optum-disabled:hover.optum-active {
+  background: rgba(115, 134, 148, 0.3);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: inherit;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button:hover, .optum-dark .optum-button-group.optum-minimal .optum-button:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-active {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button:hover {
+  background: rgba(138, 155, 168, 0.15);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-active {
+  background: rgba(138, 155, 168, 0.3);
+  color: #f5f8fa;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button:disabled, .optum-dark .optum-button-group.optum-minimal .optum-button:disabled:hover, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-disabled, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-disabled:hover {
+  background: none;
+  color: rgba(167, 182, 194, 0.6);
+  cursor: not-allowed;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button:disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button:disabled:hover.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-disabled:hover.optum-active {
+  background: rgba(138, 155, 168, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary {
+  color: #106ba3;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary:hover, .optum-button-group.optum-minimal .optum-button.optum-intent-primary:active, .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-active {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #106ba3;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary:hover {
+  background: rgba(19, 124, 189, 0.15);
+  color: #106ba3;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary:active, .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-active {
+  background: rgba(19, 124, 189, 0.3);
+  color: #106ba3;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary:disabled, .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-disabled {
+  background: none;
+  color: rgba(16, 107, 163, 0.5);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary:disabled.optum-active, .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-disabled.optum-active {
+  background: rgba(19, 124, 189, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-primary .optum-button-spinner .optum-spinner-head {
+  stroke: #106ba3;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary {
+  color: #48aff0;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary:hover {
+  background: rgba(19, 124, 189, 0.2);
+  color: #48aff0;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-active {
+  background: rgba(19, 124, 189, 0.3);
+  color: #48aff0;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary:disabled, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-disabled {
+  background: none;
+  color: rgba(72, 175, 240, 0.5);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary:disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-primary.optum-disabled.optum-active {
+  background: rgba(19, 124, 189, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success {
+  color: #0d8050;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success:hover, .optum-button-group.optum-minimal .optum-button.optum-intent-success:active, .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-active {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #0d8050;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success:hover {
+  background: rgba(15, 153, 96, 0.15);
+  color: #0d8050;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success:active, .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-active {
+  background: rgba(15, 153, 96, 0.3);
+  color: #0d8050;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success:disabled, .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-disabled {
+  background: none;
+  color: rgba(13, 128, 80, 0.5);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success:disabled.optum-active, .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-disabled.optum-active {
+  background: rgba(15, 153, 96, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-success .optum-button-spinner .optum-spinner-head {
+  stroke: #0d8050;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success {
+  color: #3dcc91;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success:hover {
+  background: rgba(15, 153, 96, 0.2);
+  color: #3dcc91;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-active {
+  background: rgba(15, 153, 96, 0.3);
+  color: #3dcc91;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success:disabled, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-disabled {
+  background: none;
+  color: rgba(61, 204, 145, 0.5);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success:disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-success.optum-disabled.optum-active {
+  background: rgba(15, 153, 96, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning {
+  color: #bf7326;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning:hover, .optum-button-group.optum-minimal .optum-button.optum-intent-warning:active, .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-active {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #bf7326;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning:hover {
+  background: rgba(217, 130, 43, 0.15);
+  color: #bf7326;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning:active, .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-active {
+  background: rgba(217, 130, 43, 0.3);
+  color: #bf7326;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning:disabled, .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-disabled {
+  background: none;
+  color: rgba(191, 115, 38, 0.5);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning:disabled.optum-active, .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-disabled.optum-active {
+  background: rgba(217, 130, 43, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-warning .optum-button-spinner .optum-spinner-head {
+  stroke: #bf7326;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning {
+  color: #ffb366;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning:hover {
+  background: rgba(217, 130, 43, 0.2);
+  color: #ffb366;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-active {
+  background: rgba(217, 130, 43, 0.3);
+  color: #ffb366;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning:disabled, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-disabled {
+  background: none;
+  color: rgba(255, 179, 102, 0.5);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning:disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-warning.optum-disabled.optum-active {
+  background: rgba(217, 130, 43, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger {
+  color: #c23030;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger:hover, .optum-button-group.optum-minimal .optum-button.optum-intent-danger:active, .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-active {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #c23030;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger:hover {
+  background: rgba(219, 55, 55, 0.15);
+  color: #c23030;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger:active, .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-active {
+  background: rgba(219, 55, 55, 0.3);
+  color: #c23030;
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger:disabled, .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-disabled {
+  background: none;
+  color: rgba(194, 48, 48, 0.5);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger:disabled.optum-active, .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-disabled.optum-active {
+  background: rgba(219, 55, 55, 0.3);
+}
+
+.optum-button-group.optum-minimal .optum-button.optum-intent-danger .optum-button-spinner .optum-spinner-head {
+  stroke: #c23030;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger {
+  color: #ff7373;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger:hover {
+  background: rgba(219, 55, 55, 0.2);
+  color: #ff7373;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger:active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-active {
+  background: rgba(219, 55, 55, 0.3);
+  color: #ff7373;
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger:disabled, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-disabled {
+  background: none;
+  color: rgba(255, 115, 115, 0.5);
+}
+
+.optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger:disabled.optum-active, .optum-dark .optum-button-group.optum-minimal .optum-button.optum-intent-danger.optum-disabled.optum-active {
+  background: rgba(219, 55, 55, 0.3);
+}
+
+.optum-button-group .optum-popover-wrapper,
+.optum-button-group .optum-popover-target {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.optum-button-group.optum-fill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.optum-button-group .optum-button.optum-fill,
+.optum-button-group.optum-fill .optum-button:not(.optum-fixed) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.optum-button-group.optum-vertical {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: top;
+}
+
+.optum-button-group.optum-vertical.optum-fill {
+  height: 100%;
+  width: unset;
+}
+
+.optum-button-group.optum-vertical .optum-button {
+  margin-right: 0 !important;
+  width: 100%;
+}
+
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-popover-wrapper:first-child .optum-button,
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-button:first-child {
+  border-radius: 3px 3px 0 0;
+}
+
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-popover-wrapper:last-child .optum-button,
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-button:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-popover-wrapper:not(:last-child) .optum-button,
+.optum-button-group.optum-vertical:not(.optum-minimal) > .optum-button:not(:last-child) {
+  margin-bottom: -1px;
+}
+
+.optum-button-group.optum-align-left .optum-button {
+  text-align: left;
+}
+
+.optum-dark .optum-button-group:not(.optum-minimal) > .optum-popover-wrapper:not(:last-child) .optum-button,
+.optum-dark .optum-button-group:not(.optum-minimal) > .optum-button:not(:last-child) {
+  margin-right: 1px;
+}
+
+.optum-dark .optum-button-group.optum-vertical > .optum-popover-wrapper:not(:last-child) .optum-button,
+.optum-dark .optum-button-group.optum-vertical > .optum-button:not(:last-child) {
+  margin-bottom: 1px;
+}
+/*# sourceMappingURL=ButtonGroup.css.map */

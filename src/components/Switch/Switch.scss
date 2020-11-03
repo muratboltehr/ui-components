@@ -1,0 +1,360 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+
+$button-color-disabled: $pt-text-color-disabled !default;
+$button-background-color: $light-gray5 !default;
+$button-background-color-hover: $light-gray4 !default;
+$button-background-color-active: $light-gray2 !default;
+$button-background-color-disabled: rgba($light-gray1, 0.5) !default;
+$button-background-color-active-disabled: rgba($light-gray1, 0.7) !default;
+$button-intent-color-disabled: rgba($white, 0.6);
+
+$button-border-width: 1px !default;
+$button-box-shadow-overlay: 0 0 0 $button-border-width rgba($black, 0.2),
+  0 1px 1px rgba($black, 0.2) !default;
+$button-box-shadow-overlay-active: 0 0 0 $button-border-width rgba($black, 0.2),
+  inset 0 1px 1px rgba($black, 0.1) !default;
+
+$button-box-shadow: inset 0 0 0 $button-border-width rgba($black, 0.2),
+  inset 0 (-$button-border-width) 0 rgba($black, 0.1) !default;
+$button-box-shadow-active: inset 0 0 0 $button-border-width rgba($black, 0.2),
+  inset 0 1px 2px rgba($black, 0.2) !default;
+$button-intent-box-shadow: inset 0 0 0 $button-border-width rgba($black, 0.4),
+  inset 0 (-$button-border-width) 0 rgba($black, 0.2) !default;
+$button-intent-box-shadow-active: inset 0 0 0 $button-border-width
+    rgba($black, 0.4),
+  inset 0 1px 2px rgba($black, 0.2) !default;
+
+$button-intents: (
+  "primary": (
+    $pt-intent-primary,
+    $blue2,
+    $blue1,
+  ),
+  "success": (
+    $pt-intent-success,
+    $green2,
+    $green1,
+  ),
+  "warning": (
+    $pt-intent-warning,
+    $orange2,
+    $orange1,
+  ),
+  "danger": (
+    $pt-intent-danger,
+    $red2,
+    $red1,
+  ),
+) !default;
+
+$button-gradient: linear-gradient(
+  to bottom,
+  rgba($white, 0.8),
+  rgba($white, 0)
+) !default;
+$button-intent-gradient: linear-gradient(
+  to bottom,
+  rgba($white, 0.1),
+  rgba($white, 0)
+) !default;
+
+$control-background-color: $button-background-color !default;
+$control-background-color-hover: $button-background-color-hover !default;
+$control-background-color-active: $button-background-color-active !default;
+
+$control-checked-background-color: nth(
+  map-get($button-intents, "primary"),
+  1
+) !default;
+$control-checked-background-color-hover: nth(
+  map-get($button-intents, "primary"),
+  2
+) !default;
+$control-checked-background-color-active: nth(
+  map-get($button-intents, "primary"),
+  3
+) !default;
+
+$control-indicator-size: $pt-icon-size-standard !default;
+$control-indicator-size-large: $pt-icon-size-large !default;
+$control-indicator-spacing: $pt-grid-size !default;
+
+@mixin control-checked-colors($selector: ":checked") {
+  input#{$selector} ~ .#{$ns}-control-indicator {
+    background-color: $control-checked-background-color;
+    background-image: $button-intent-gradient;
+    box-shadow: $button-intent-box-shadow;
+    color: $white;
+  }
+
+  &:hover input#{$selector} ~ .#{$ns}-control-indicator {
+    background-color: $control-checked-background-color-hover;
+    box-shadow: $button-intent-box-shadow;
+  }
+
+  input:not(:disabled):active#{$selector} ~ .#{$ns}-control-indicator {
+    background: $control-checked-background-color-active;
+    box-shadow: $button-intent-box-shadow-active;
+  }
+
+  input:disabled#{$selector} ~ .#{$ns}-control-indicator {
+    background: rgba($control-checked-background-color, 0.5);
+    box-shadow: none;
+  }
+}
+
+@mixin indicator-position($size) {
+  $padding: $size + $control-indicator-spacing;
+
+  &:not(.#{$ns}-align-right) {
+    padding-left: $padding;
+
+    .#{$ns}-control-indicator {
+      margin-left: -$padding;
+    }
+  }
+
+  &.#{$ns}-align-right {
+    padding-right: $padding;
+
+    .#{$ns}-control-indicator {
+      margin-right: -$padding;
+    }
+  }
+}
+
+.#{$ns}-control {
+  @include control-checked-colors();
+  @include indicator-position($control-indicator-size);
+  cursor: pointer;
+
+  display: block;
+  margin-bottom: $pt-grid-size;
+  position: relative;
+  text-transform: none;
+
+  &.#{$ns}-disabled {
+    color: $pt-text-color-disabled;
+    cursor: not-allowed;
+  }
+
+  &.#{$ns}-inline {
+    display: inline-block;
+    margin-right: $pt-grid-size * 2;
+  }
+
+  input {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1; // don't let it intercept clicks
+  }
+
+  .#{$ns}-control-indicator {
+    background-clip: padding-box;
+    background-color: $control-background-color;
+    background-image: $button-gradient;
+    border: none;
+    box-shadow: $button-box-shadow;
+    cursor: pointer;
+    display: inline-block;
+    // font-size is used to size indicator for all control types,
+    // to reduce property changes needed across types and sizes (large).
+    font-size: $control-indicator-size;
+    height: 1em;
+    margin-right: $control-indicator-spacing;
+    margin-top: -3px;
+    position: relative;
+    user-select: none;
+    vertical-align: middle;
+    width: 1em;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 1em;
+      width: 1em;
+    }
+  }
+
+  &:hover .#{$ns}-control-indicator {
+    background-color: $control-background-color-hover;
+  }
+
+  input:not(:disabled):active ~ .#{$ns}-control-indicator {
+    background: $control-background-color-active;
+    box-shadow: $button-box-shadow-active;
+  }
+
+  input:disabled ~ .#{$ns}-control-indicator {
+    background: $button-background-color-disabled;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  // input:focus ~ .#{$ns}-control-indicator {
+  //   @include focus-outline();
+  // }
+
+  // right-aligned indicator is glued to the right side of the container
+  &.#{$ns}-align-right .#{$ns}-control-indicator {
+    float: right;
+    margin-left: $control-indicator-spacing;
+    margin-top: 1px;
+  }
+
+  &.#{$ns}-large {
+    @include indicator-position($control-indicator-size-large);
+    // larger text
+    font-size: $pt-font-size-large;
+
+    .#{$ns}-control-indicator {
+      // em-based sizing
+      font-size: $control-indicator-size-large;
+    }
+
+    &.#{$ns}-align-right .#{$ns}-control-indicator {
+      margin-top: 0;
+    }
+  }
+
+  $switch-width: 1.75em !default;
+  $switch-indicator-margin: 2px !default;
+  $switch-indicator-size: calc(1em - #{$switch-indicator-margin * 2});
+
+  $switch-indicator-child-height: 1em;
+  $switch-indicator-child-outside-margin: 0.5em;
+  $switch-indicator-child-inside-margin: 1.2em;
+
+  $switch-indicator-text-font-size: 0.7em;
+
+  $switch-background-color: rgba($gray4, 0.5) !default;
+  $switch-background-color-hover: rgba($gray2, 0.5) !default;
+  $switch-background-color-active: rgba($gray1, 0.5) !default;
+  $switch-background-color-disabled: $button-background-color-disabled !default;
+  $switch-checked-background-color: $control-checked-background-color !default;
+  $switch-checked-background-color-hover: $control-checked-background-color-hover !default;
+  $switch-checked-background-color-active: $control-checked-background-color-active !default;
+  $switch-checked-background-color-disabled: rgba($blue3, 0.5) !default;
+
+  $switch-indicator-background-color: $white !default;
+  $switch-indicator-background-color-disabled: rgba($white, 0.8) !default;
+
+  &.#{$ns}-switch {
+    @mixin indicator-colors(
+      $selector,
+      $color,
+      $hover-color,
+      $active-color,
+      $disabled-color,
+      $disabled-indicator-color
+    ) {
+      input#{$selector} ~ .#{$ns}-control-indicator {
+        background: $color;
+      }
+
+      &:hover input#{$selector} ~ .#{$ns}-control-indicator {
+        background: $hover-color;
+      }
+
+      input#{$selector}:not(:disabled):active ~ .#{$ns}-control-indicator {
+        background: $active-color;
+      }
+
+      input#{$selector}:disabled ~ .#{$ns}-control-indicator {
+        background: $disabled-color;
+
+        &::before {
+          background: $disabled-indicator-color;
+        }
+      }
+    }
+
+    @include indicator-colors(
+      "",
+      $switch-background-color,
+      $switch-background-color-hover,
+      $switch-background-color-active,
+      $switch-background-color-disabled,
+      $switch-indicator-background-color-disabled
+    );
+    @include indicator-colors(
+      ":checked",
+      $switch-checked-background-color,
+      $switch-checked-background-color-hover,
+      $switch-checked-background-color-active,
+      $switch-checked-background-color-disabled,
+      $switch-indicator-background-color-disabled
+    );
+    // convert em variable to px value
+    @include indicator-position($switch-width / 1em * $control-indicator-size);
+
+    .#{$ns}-control-indicator {
+      border: none;
+      border-radius: $switch-width;
+      // override default button styles, never have a box-shadow here.
+      // stylelint-disable-next-line declaration-no-important
+      box-shadow: none !important;
+      min-width: $switch-width;
+      transition: background-color $pt-transition-duration $pt-transition-ease;
+      width: auto;
+
+      &::before {
+        background: $switch-indicator-background-color;
+        border-radius: 50%;
+        box-shadow: $button-box-shadow-overlay;
+        height: $switch-indicator-size;
+        left: 0;
+        margin: $switch-indicator-margin;
+        position: absolute;
+        transition: left $pt-transition-duration $pt-transition-ease;
+        width: $switch-indicator-size;
+      }
+    }
+
+    input:checked ~ .#{$ns}-control-indicator::before {
+      // 1em is size of indicator
+      left: calc(100% - 1em);
+    }
+
+    &.#{$ns}-large {
+      @include indicator-position(
+        $switch-width / 1em * $control-indicator-size-large
+      );
+    }
+    .#{$ns}-switch-inner-text {
+      font-size: $switch-indicator-text-font-size;
+      text-align: center;
+    }
+
+    .#{$ns}-control-indicator-child {
+      &:first-child {
+        line-height: 0;
+        margin-left: $switch-indicator-child-outside-margin;
+        margin-right: $switch-indicator-child-inside-margin;
+        visibility: hidden;
+      }
+
+      &:last-child {
+        line-height: $switch-indicator-child-height;
+        margin-left: $switch-indicator-child-inside-margin;
+        margin-right: $switch-indicator-child-outside-margin;
+        visibility: visible;
+      }
+    }
+    input:checked ~ .#{$ns}-control-indicator .#{$ns}-control-indicator-child {
+      &:first-child {
+        line-height: $switch-indicator-child-height;
+        visibility: visible;
+      }
+
+      &:last-child {
+        line-height: 0;
+        visibility: hidden;
+      }
+    }
+  }
+}

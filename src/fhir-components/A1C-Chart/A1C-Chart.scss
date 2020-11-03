@@ -1,0 +1,164 @@
+// Generated with util/create-component.js
+@import "../../variables.scss";
+@import "../../typography.scss";
+// @import "~bootstrap/scss/bootstrap";
+// 
+$not-well-controlled-color : #EDB2B4;
+$diabetes-color: #FFBCA8;
+$prediabetes-color: #FFD6A5;
+$non-diabetic-color: #B3E2D1;
+
+.chart-normal-range {
+  fill:$non-diabetic-color;
+  fill-opacity:.5;
+  z-index: -1;
+}
+
+.chart-sub-normal-range {
+  fill:$prediabetes-color;
+  fill-opacity: .5;
+
+}
+
+.chart-high-range,
+.chart-low-range {
+  fill:$diabetes-color;
+  fill-opacity: .5;
+
+
+}
+
+.chart-highest-range {
+  fill:$not-well-controlled-color;
+  fill-opacity: .5;
+}
+
+.chartBody {
+  width: 100% !important;
+}
+
+
+.charttablecontents {
+  width: 350px;
+}
+.foutypercentwidth {
+  width: 40%;
+}
+
+.sixtypercentwidth {
+  width: 60%;
+}
+
+.left {
+  float: left !important;
+}
+.right {
+  float: right !important;
+}
+.chart-container{
+  box-sizing: border-box;
+  @include font-defaults;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  .chart-table-wrap{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+ .chart-table-contents{
+  width: 350px;
+  margin: 5px 0;
+.chart-table{
+    width: 100%;
+    float: left;
+    font-size: .85rem;
+    background-color: #ffffff !important;
+    th {
+      font-weight: bold;
+      background-color: white;
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+  }
+  .table-col-alc, .table-head-alc{
+    padding: .3rem;
+    text-align: right;
+  }
+  .table-col-date, .table-head-date{
+    padding: .3rem;
+    text-align: left;
+  }
+
+  .chart-table-row{
+    border: none;
+    &.in-focus{
+        border-style:none ;
+        border-left: .5rem solid #2F1986 !important;
+        background-color: #E1DCEE;
+    }
+    &.clear-border{
+      border: none;
+      border-left-width:0px ;
+    }
+  }}
+ }
+
+.active-data-callout{
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: .85rem;
+  border-left: .5rem solid #2F1986;
+  background-color: #E1DCEE;
+ }
+}
+
+.a1c-legend-container{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: .85rem;
+  ul{
+    list-style: none;
+    margin-left: 1.5rem;
+    li{
+      text-align: none;
+      display: flex;
+    align-items: center;
+    vertical-align: middle;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: .5rem;
+      }
+      &::after{
+        content: "";
+        display: block;
+      }
+      
+    }
+  }
+  .legend-highest{
+    &::before{
+      background-color: $not-well-controlled-color;
+    }
+  }
+  .legend-high{
+    &::before{
+      background-color: $diabetes-color;
+    }
+  }
+  .legend-normal{
+    &::before{
+      background-color: $non-diabetic-color;
+    }
+  }
+  .legend-low{
+    &::before{
+      background-color: $prediabetes-color;
+    }
+  }
+}
+
+.highcharts-halo{
+    fill-opacity: .20;
+}

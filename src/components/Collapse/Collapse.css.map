@@ -1,0 +1,17 @@
+{
+    "version": 3,
+    "mappings": "AIsIA;;;;;;;;EAQE;AAkCF;;;;EAIE;AAOF;;;EAGE;AJ1LF,AAAA,eAAe,CAAE;EACf,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,MAAM,CAAC,KAAK,CAAC,+BAA+B;CAYzD;;AAdD,AAIE,eAJa,CAIb,oBAAoB,CAAE;EACpB,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,SAAS,CAAC,KAAK,CAAC,+BAA+B;EAC3D,MAAM,EAAE,KAAK,CAAC,KAAK,CEMT,OAAO;EFLjB,aAAa,EAAE,IAAI;CAKpB;;AAbH,AAUI,eAVW,CAIb,oBAAoB,CAMjB,AAAA,WAAC,CAAY,MAAM,AAAlB,EAAoB;EACpB,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "Collapse.scss",
+        "../../variables.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_mixins.scss",
+        "../../styles/_colors.scss",
+        "../../styles/_color-aliases.scss",
+        "../../styles/_flex.scss",
+        "../../typography.scss"
+    ],
+    "names": [],
+    "file": "Collapse.css"
+}
